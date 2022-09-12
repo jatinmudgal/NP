@@ -27,8 +27,7 @@ int main()
     n = recvfrom(listenfd, buffer, sizeof(buffer), MSG_WAITALL, (struct sockaddr*)&cliaddr, &len); 
     buffer[n] = '\0';
     printf("Client: %s", buffer);
-           
-    // send the response
+          
     fgets(message, 100, stdin);
     sendto(listenfd, message, sizeof(message), MSG_CONFIRM,
           (struct sockaddr*)&cliaddr, sizeof(cliaddr));
